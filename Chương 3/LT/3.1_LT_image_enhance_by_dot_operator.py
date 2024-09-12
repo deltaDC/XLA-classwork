@@ -34,6 +34,6 @@ def display_images(input_img, output_img):
 
     plt.show()
 
-input_image = cv2.imread('./assets/dot_operator_example.png', cv2.IMREAD_GRAYSCALE)
+input_image = cv2.imread('../assets/dot_operator_example.png', cv2.IMREAD_GRAYSCALE)
 output_image = enhance_image(input_image)
 display_images(input_image, output_image)
