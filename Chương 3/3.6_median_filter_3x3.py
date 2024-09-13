@@ -1,7 +1,13 @@
-def find_average(list):
-    return sum(list) / len(list)
+def find_median(list):
+    sorted_list = sorted(list)
+    n = len(sorted_list)
+    if n % 2 == 1:
+        return sorted_list[n // 2]
+    else:  # Even number of elements
+        mid1 = sorted_list[(n // 2) - 1]
+        mid2 = sorted_list[n // 2]
+        return (mid1 + mid2) / 2
 
-blank_line = input()
 n = int(input())
 matrix = []
 
@@ -9,18 +15,18 @@ for _ in range(n):
     row = list(map(int, input().split()))
     matrix.append(row)
 
-avg_matrix = []
+median_matrix = []
 for row in range(1, n - 1):
-    avg_row = []
+    median_row = []
     for col in range(1, n - 1):
             neighborhood = []
             for j in range(row - 1, row + 2):
                 for k in range(col - 1, col + 2):
                     neighborhood.append(matrix[j][k])
-            avg_row.append(round(find_average(neighborhood)))
-    avg_matrix.append(avg_row)
+            median_row.append(find_median(neighborhood))
+    median_matrix.append(median_row)
 
-for row in avg_matrix:
+for row in median_matrix:
     print(*row)
 
 # 4
@@ -28,9 +34,3 @@ for row in avg_matrix:
 # 75 180 30 220
 # 160 40 90 120
 # 210 70 250 25
-
-# 4
-# 2 7 3 0
-# 3 1 6 3
-# 0 1 3 5
-# 3 6 7 1
