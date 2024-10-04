@@ -8,6 +8,7 @@ def find_median(list):
         mid2 = sorted_list[n // 2]
         return (mid1 + mid2) / 2
 
+blank_line = input()
 n = int(input())
 matrix = []
 

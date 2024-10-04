@@ -1,5 +1,6 @@
 import math
 
+blank_line = input()
 m, n = map(int, input().split())
 
 levels = int(input()) - 1
