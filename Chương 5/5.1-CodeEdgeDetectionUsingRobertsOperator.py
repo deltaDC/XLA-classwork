@@ -32,6 +32,7 @@ def roberts_operator(image):
     return reversed_output
 
 # Read input
+blank = input()
 n = int(input().strip())
 image = [list(map(int, input().strip().split())) for _ in range(n)]
 
