@@ -1,15 +1,14 @@
-# Giá trị mức xám và xác suất tương ứng
-from numpy.ma.core import floor
-
-
 # Hàm tính trung bình mức xám với xác suất
 def mean_gray_level(values, probabilities):
     weighted_sum = sum(v * p for v, p in zip(values, probabilities))
     total_probability = sum(probabilities)
     return weighted_sum / total_probability if total_probability != 0 else 0
 
-r = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-p_r = [0.09, 0.2, 0.1, 0.06, 0.06, 0.08, 0.35, 0.04, 0.01, 0.01]
+# Nhập các giá trị mức xám
+r = list(map(int, input("Nhập các giá trị mức xám (cách nhau bởi khoảng trắng): ").split()))
+
+# Nhập các xác suất tương ứng
+p_r = list(map(float, input("Nhập các xác suất tương ứng (cách nhau bởi khoảng trắng): ").split()))
 
 # Ngưỡng khởi đầu
 T = 5

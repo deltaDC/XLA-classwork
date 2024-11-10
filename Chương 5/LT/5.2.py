@@ -1,25 +1,18 @@
-# Khởi tạo ma trận I và Hz
-I = [
-    [2, 2, 2, 2, 2, 2, 2],
-    [2, 2, 2, 2, 2, 2, 2],
-    [2, 2, 15, 15, 15, 2, 2],
-    [2, 2, 13, 12, 16, 2, 2],
-    [2, 2, 15, 15, 15, 2, 2],
-    [2, 2, 2, 2, 2, 2, 2],
-    [2, 2, 2, 2, 2, 2, 2],
-]
+# Nhập ma trận I
+I_height, I_width = map(int, input("Nhập kích thước ma trận I (h w): ").split())
+print("Nhập các phần tử của ma trận I:")
+I = []
+for _ in range(I_height):
+    row = list(map(int, input().split()))
+    I.append(row)
 
-Hz = [
-    [0, -1, 0],
-    [-1, 4, -1],
-    [0, -1, 0],
-]
-
-# Kích thước của ma trận I và ma trận bộ lọc
-I_height = len(I)
-I_width = len(I[0])
-Hz_height = len(Hz)
-Hz_width = len(Hz[0])
+# Nhập ma trận Hz
+Hz_height, Hz_width = map(int, input("Nhập kích thước ma trận Hz (h w): ").split())
+print("Nhập các phần tử của ma trận Hz:")
+Hz = []
+for _ in range(Hz_height):
+    row = list(map(int, input().split()))
+    Hz.append(row)
 
 # Khởi tạo ma trận kết quả
 I2_height = I_height - Hz_height + 1

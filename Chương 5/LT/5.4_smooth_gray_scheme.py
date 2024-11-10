@@ -20,27 +20,25 @@ def smooth_histogram(histogram, W):
 
     return smoothed
 
+# Nhập kích thước của ma trận I
+I_height, I_width = map(int, input("Nhập kích thước ma trận I (h w): ").split())
 
-# Ảnh I dưới dạng ma trận numpy
-I = np.array([
-    [1, 2, 1, 3, 2, 1],
-    [4, 4, 3, 2, 4, 0],
-    [6, 9, 2, 3, 2, 1],
-    [6, 2, 0, 5, 3, 0],
-    [3, 4, 0, 5, 1, 5],
-    [5, 6, 8, 9, 3, 6]
-])
+# Nhập các phần tử của ma trận I
+print("Nhập các phần tử của ma trận I:")
+I = []
+for _ in range(I_height):
+    row = list(map(int, input().split()))
+    I.append(row)
+I = np.array(I)
 
 # Tính biểu đồ tần suất
 histogram, _ = np.histogram(I, bins=range(11))
 
-print(histogram)
-print(_)
+print("Biểu đồ tần suất:", histogram)
 
 # Làm trơn biểu đồ tần suất với W = 3 và W = 5, sau đó làm tròn lên
 smoothed_histogram_w3_rounded = smooth_histogram(histogram, 3)
 smoothed_histogram_w5_rounded = smooth_histogram(histogram, 5)
 
-
-print(smoothed_histogram_w3_rounded)
-print(smoothed_histogram_w5_rounded)
+print("Biểu đồ tần suất sau khi làm trơn với W=3:", smoothed_histogram_w3_rounded)
+print("Biểu đồ tần suất sau khi làm trơn với W=5:", smoothed_histogram_w5_rounded)

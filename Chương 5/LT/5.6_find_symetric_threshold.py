@@ -1,8 +1,3 @@
-# Giá trị mức xám và tần suất tương ứng
-g = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-h_g = [2, 3, 4, 5, 7, 8, 12, 47, 10, 2]
-
-
 # Hàm tính ngưỡng đối xứng nền
 def find_symmetric_threshold(g, h_g):
     total_pixels = sum(h_g)  # Tổng số điểm ảnh
@@ -20,6 +15,11 @@ def find_symmetric_threshold(g, h_g):
         if left_sum >= right_sum:
             return g[i]  # Trả về ngưỡng tìm được
 
+# Nhập các giá trị mức xám
+g = list(map(int, input("Nhập các giá trị mức xám (cách nhau bởi khoảng trắng): ").split()))
+
+# Nhập các tần suất tương ứng
+h_g = list(map(int, input("Nhập các tần suất tương ứng (cách nhau bởi khoảng trắng): ").split()))
 
 # Tìm ngưỡng
 optimal_threshold = find_symmetric_threshold(g, h_g)

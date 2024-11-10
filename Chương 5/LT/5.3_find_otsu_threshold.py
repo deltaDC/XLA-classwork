@@ -1,21 +1,21 @@
 import numpy as np
 import cv2
 
-# Bước 1: Tạo ma trận ảnh
-I = np.array([
-    [1, 4, 1, 1, 2, 3, 2, 3],
-    [3, 2, 4, 2, 5, 2, 6, 2],
-    [2, 1, 8, 2, 5, 2, 5, 6],
-    [2, 5, 2, 4, 7, 9, 1, 4],
-    [2, 2, 3, 0, 0, 1, 2, 1],
-    [1, 5, 7, 1, 2, 4, 5, 6]
-], dtype=np.uint8)
+# Nhập kích thước của ma trận I
+I_height, I_width = map(int, input("Nhập kích thước ma trận I (h w): ").split())
 
-# Bước 2: Tính ngưỡng Otsu
-# Hàm cv2.threshold sẽ tự động tính ngưỡng Otsu cho ảnh
+# Nhập các phần tử của ma trận I
+print("Nhập các phần tử của ma trận I:")
+I = []
+for _ in range(I_height):
+    row = list(map(int, input().split()))
+    I.append(row)
+I = np.array(I, dtype=np.uint8)
+
+# Tính ngưỡng Otsu
 _, otsu_threshold = cv2.threshold(I, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
-# Kết quả ngưỡng Otsu
+# In kết quả ngưỡng Otsu và ảnh sau khi áp dụng ngưỡng
 print("Ngưỡng Otsu:", _)
 print("Ảnh sau khi áp dụng ngưỡng:")
 print(otsu_threshold)
