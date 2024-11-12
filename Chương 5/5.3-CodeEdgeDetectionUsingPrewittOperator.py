@@ -32,3 +32,13 @@ gradient_image = prewitt_operator(image)
 # Print output
 for row in gradient_image:
     print(" ".join(map(str, row)))
+
+# 8
+# 50 50 50 50 50 50 50 50
+# 50 50 50 50 50 50 50 50
+# 0 0 0 0 0 0 0 0
+# 50 50 50 50 50 50 50 50
+# 50 50 50 50 50 50 50 50
+# 50 50 50 50 50 50 50 50
+# 50 50 50 50 50 50 50 50
+# 50 50 50 50 50 50 50 50
