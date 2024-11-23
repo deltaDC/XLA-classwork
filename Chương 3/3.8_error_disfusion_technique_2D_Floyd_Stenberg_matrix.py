@@ -15,38 +15,33 @@ def error_diffusion(image):
 
             error = old_pixel - new_pixel
 
-            if x + 1 < width:  # Right pixel
+            if x + 1 < width:
                 image[y][x + 1] += error * 7 / 16
-            if y + 1 < height:  # Below pixel
+            if y + 1 < height:
                 image[y + 1][x] += error * 5 / 16
-                if x + 1 < width:  # Bottom right pixel
+                if x + 1 < width:
                     image[y + 1][x + 1] += error * 1 / 16
-            if y + 1 < height and x - 1 >= 0:  # Bottom left pixel
+            if y + 1 < height and x - 1 >= 0:
                 image[y + 1][x - 1] += error * 3 / 16
 
             image[y][x] = max(0, min(255, image[y][x]))
 
     return output_image
 
-def main():
     
-    blank = input()
-    
-    image_size = int(input().strip())
-    image = []
+blank = input()
 
-    for _ in range(image_size):
-        row = list(map(int, input().strip().split()))
-        image.append(row)
+image_size = int(input().strip())
+image = []
 
-    result = error_diffusion(image)
+for _ in range(image_size):
+    row = list(map(int, input().strip().split()))
+    image.append(row)
 
-    for row in result:
-        print(*row)
+result = error_diffusion(image)
 
-if __name__ == "__main__":
-    main()
-
+for row in result:
+    print(*row)
 
 # 4
 # 50 150 200 50
